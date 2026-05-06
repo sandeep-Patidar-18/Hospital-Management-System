@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="input-container">
+        <form method="post" action="/registration">
+          <div class="input-row">
+            <label for="name">Enter Name</label>
+            <input id="name" name="name" type="text" placeholder="enter your name" required />
+          </div>
+          <div class="input-row">
+            <label for="email">Enter Email</label>
+            <input name="email" id="email" type="email" placeholder="enter your email" required />
+          </div>
+          <div class="input-row">
+            <label for="password">Create Password</label>
+            <input id="password" name="password" type="password" placeholder="create your password " required />
+          </div>
+          <div class="button">
+            <button type="submit" >Register</button>
+          </div>
+          <a href="/login">already have an account ?</a>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
