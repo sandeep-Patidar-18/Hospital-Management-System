@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" href="../static/style.css" />
+  </head>
+  <body>
+    <div class="dashboard-shell doctor-shell">
+      <header class="dashboard-header">
+        <div class="header-top-row">
+          <nav class="dashboard-nav">
+            <a href="{{ url_for('doctor_dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('doctor_dashboard') }}">Appointments</a>
+            <a href="{{ url_for('doctor_dashboard') }}">Patients</a>
+            <a href="{{ url_for('doctor_dashboard') }}">Consultation Notes</a>
+          </nav>
+
+          <div class="brand-block brand-centered">
+            <p class="brand-tag">Health Care Portal</p>
+            <h1>Swasthya Setu</h1>
+          </div>
+
+          <div class="patient-actions">
+            <div class="patient-badge">
+              <span class="patient-status"></span>
+              <div>
+                <p class="patient-badge-label">Logged in as</p>
+                <strong>Dr. {{ name or "Mehta" }}</strong>
+              </div>
+            </div>
+
+            <a class="profile-link" href="{{ url_for('doctor_dashboard') }}">Doctor Profile</a>
+            <a class="logout-link" href="{{ url_for('login') }}">Logout</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard-hero doctor-hero">
+        <section class="hero-grid">
+          <div class="hero-tile tall tile-one"></div>
+          <div class="hero-tile tile-six"></div>
+          <div class="hero-tile tile-three"></div>
+          <div class="hero-tile tile-nine"></div>
+          <div class="hero-tile tall tile-five"></div>
+          <div class="hero-tile tile-four"></div>
+          <div class="hero-tile wide tile-seven"></div>
+          <div class="hero-tile tile-eight"></div>
+          <div class="hero-tile tile-two"></div>
+          <div class="hero-tile wide tile-ten"></div>
+        </section>
+
+        <section class="hero-overlay doctor-overlay">
+          <div class="doctor-hero-layout">
+            <div class="hero-copy">
+              <p class="intro-label">Doctor Dashboard</p>
+              <h2>See today&apos;s appointments, patients, and consultation flow at a glance.</h2>
+              <p>
+                Manage your clinic day from one place with appointment visibility,
+                patient updates, and quick access to follow-up actions.
+              </p>
+            </div>
+
+            <aside class="doctor-summary-card">
+              <p class="summary-label">Today&apos;s Snapshot</p>
+              <div class="summary-grid">
+                <div>
+                  <strong>18</strong>
+                  <span>Total Appointments</span>
+                </div>
+                <div>
+                  <strong>06</strong>
+                  <span>Pending Reviews</span>
+                </div>
+                <div>
+                  <strong>04</strong>
+                  <span>Online Consults</span>
+                </div>
+                <div>
+                  <strong>09</strong>
+                  <span>Follow-ups</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+
+          <div class="quick-actions doctor-actions">
+            <a href="{{ url_for('doctor_dashboard') }}">View Appointments</a>
+            <a href="{{ url_for('doctor_dashboard') }}">Patient Queue</a>
+            <a href="{{ url_for('doctor_dashboard') }}">Add Notes</a>
+            <a href="{{ url_for('doctor_dashboard') }}">Availability</a>
+          </div>
+
+          <section class="doctor-workspace">
+            <div class="doctor-panel appointments-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="panel-kicker">Upcoming</p>
+                  <h3>Today&apos;s Appointments</h3>
+                </div>
+                <a href="{{ url_for('doctor_dashboard') }}">See all</a>
+              </div>
+
+              <div class="appointment-list">
+                <article class="appointment-card">
+                  <div class="appointment-time">
+                    <strong>09:00</strong>
+                    <span>AM</span>
+                  </div>
+                  <div class="appointment-body">
+                    <h4>Riya Sharma</h4>
+                    <p>General consultation - Room 2</p>
+                  </div>
+                  <span class="appointment-status confirmed">Confirmed</span>
+                </article>
+
+                <article class="appointment-card">
+                  <div class="appointment-time">
+                    <strong>10:30</strong>
+                    <span>AM</span>
+                  </div>
+                  <div class="appointment-body">
+                    <h4>Arjun Patel</h4>
+                    <p>Follow-up review - Video consult</p>
+                  </div>
+                  <span class="appointment-status waiting">Waiting</span>
+                </article>
+
+                <article class="appointment-card">
+                  <div class="appointment-time">
+                    <strong>12:15</strong>
+                    <span>PM</span>
+                  </div>
+                  <div class="appointment-body">
+                    <h4>Neha Verma</h4>
+                    <p>Lab report discussion - Room 4</p>
+                  </div>
+                  <span class="appointment-status confirmed">Confirmed</span>
+                </article>
+
+                <article class="appointment-card">
+                  <div class="appointment-time">
+                    <strong>03:45</strong>
+                    <span>PM</span>
+                  </div>
+                  <div class="appointment-body">
+                    <h4>Mohit Singh</h4>
+                    <p>Cardiac screening - Priority case</p>
+                  </div>
+                  <span class="appointment-status urgent">Urgent</span>
+                </article>
+              </div>
+            </div>
+
+            <div class="doctor-sidebar">
+              <div class="doctor-panel">
+                <div class="panel-heading">
+                  <div>
+                    <p class="panel-kicker">Queue</p>
+                    <h3>Patient Highlights</h3>
+                  </div>
+                </div>
+
+                <div class="patient-highlight-list">
+                  <div class="patient-highlight">
+                    <strong>3 patients</strong>
+                    <span>waiting for first review</span>
+                  </div>
+                  <div class="patient-highlight">
+                    <strong>2 test reports</strong>
+                    <span>need sign-off today</span>
+                  </div>
+                  <div class="patient-highlight">
+                    <strong>1 emergency alert</strong>
+                    <span>marked high-priority by reception</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="doctor-panel">
+                <div class="panel-heading">
+                  <div>
+                    <p class="panel-kicker">Tasks</p>
+                    <h3>Quick Actions</h3>
+                  </div>
+                </div>
+
+                <div class="task-list">
+                  <a href="{{ url_for('doctor_dashboard') }}">Update availability for tomorrow</a>
+                  <a href="{{ url_for('doctor_dashboard') }}">Review pending prescriptions</a>
+                  <a href="{{ url_for('doctor_dashboard') }}">Open patient records</a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Dashboard</title>
+    <link rel="stylesheet" href="../static/style.css" />
+  </head>
+  <body>
+    <div class="dashboard-shell">
+      <header class="dashboard-header">
+        <div class="header-top-row">
+          <nav class="dashboard-nav">
+            <a href="{{ url_for('dashboard') }}">Discover Care</a>
+            <a href="{{ url_for('doctor_dashboard') }}">Find Doctors</a>
+            <a href="patient_profie.html">Medical Profile</a>
+            <a href="patient_profile.html">Health Library</a>
+          </nav>
+
+          <div class="brand-block brand-centered">
+            <p class="brand-tag">Health Care Portal</p>
+            <h1>Swasthya Setu</h1>
+          </div>
+
+          <div class="patient-actions">
+            <div class="patient-badge">
+              <span class="patient-status"></span>
+              <div>
+                <p class="patient-badge-label">Logged in as</p>
+                <strong>{{name}}</strong>
+              </div>
+            </div>
+
+            <a class="profile-link" href="patient_profie.html">Profile</a>
+            <a class="logout-link" href="{{url_for('login')}}">Logout</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard-hero">
+        <section class="hero-grid">
+          <div class="hero-tile tall tile-one"></div>
+          <div class="hero-tile tile-two"></div>
+          <div class="hero-tile tile-three"></div>
+          <div class="hero-tile tile-four"></div>
+          <div class="hero-tile tall tile-five"></div>
+          <div class="hero-tile tile-six"></div>
+          <div class="hero-tile wide tile-seven"></div>
+          <div class="hero-tile tile-eight"></div>
+          <div class="hero-tile tile-nine"></div>
+          <div class="hero-tile wide tile-ten"></div>
+        </section>
+
+        <section class="hero-overlay">
+          <div class="hero-copy">
+            <p class="intro-label">Patient Dashboard</p>
+            <h2>Premium care access for every patient, every day.</h2>
+            <p>
+              Search doctors, keep your profile updated, and stay connected
+              with your health support from one dashboard.
+            </p>
+          </div>
+
+          <div class="search-panel">
+            <input type="text" placeholder="Search for doctors, specialities and health support..." />
+            <button type="button">Search</button>
+          </div>
+
+          <div class="quick-actions">
+            <a href="{{ url_for('doctor_dashboard') }}">Book Appointment</a>
+            <a href="{{ url_for('doctor_dashboard') }}">Find Doctor</a>
+            <a href="patient_profie.html">Edit Profile</a>
+            <a href="patient_profie.html">Health Records</a>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

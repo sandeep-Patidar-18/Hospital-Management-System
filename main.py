@@ -1,9 +1,10 @@
-from flask import Flask ,request,render_template
+from flask import Flask ,request,render_template,session,redirect
 from flask_mysqldb import MySQL
 import config
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
+app.secret_key = getattr(config, "SECRET_KEY", "swasth-setu-dev-key")
 
 app.config["MYSQL_HOST"]= config.MYSQL_HOST
 app.config["MYSQL_USER"]= config.MYSQL_USER
@@ -46,14 +47,27 @@ def login():
         cursor.close()
 
         if user and check_password_hash(user[3], password):
+            name=user[1]
+            session['name']=name
             
             
             
-            return render_template("patient.html")
+            return redirect("/patient_dashboard")
         
         return "invalid email or password"
 
     return render_template("login.html")
+
+@app.route("/patient_dashboard")
+def dashboard():
+    name = session.get("name", "Patient")
+    return render_template("patient_dashboard.html", name=name)
+
+
+@app.route("/doctor")
+def doctor_dashboard():
+    name = session.get("name", "Mehta")
+    return render_template("doctor.html", name=name)
         
         
         
